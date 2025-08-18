@@ -1,4 +1,16 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, Output, EventEmitter, output} from "@angular/core";
+
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// };
+
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+}
 
 @Component({
   selector: "app-user",
@@ -8,4 +20,16 @@ import {Component, OnInit} from "@angular/core";
 })
 
 
-export class UserComponent {}
+export class UserComponent {
+  @Input({ required:true }) user!: User;
+  @Output() selectedUsername = new EventEmitter();
+
+  get imagePath() {
+    return 'assets/users/' + this.user.avatar;
+  }
+
+
+  onSelectedUser() {
+    this.selectedUsername.emit(this.user.id);
+  }
+}
