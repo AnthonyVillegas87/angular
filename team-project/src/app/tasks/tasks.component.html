@@ -1,6 +1,6 @@
 
 @if(isNewTask) {
-  <app-new-task />
+  <app-new-task (close)="onCloseNewTask()"/>
 }
 <section id="tasks">
   <header>

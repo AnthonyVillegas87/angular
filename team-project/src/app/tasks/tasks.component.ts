@@ -52,6 +52,10 @@ export class TasksComponent {
 
   onNewTask() {
     this.isNewTask = true;
-    console.log('New task added');
+  }
+
+  onCloseNewTask() {
+    this.isNewTask = false;
+    console.log('New task closed');
   }
 }
