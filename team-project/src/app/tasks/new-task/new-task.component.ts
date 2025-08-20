@@ -17,4 +17,7 @@ export class NewTaskComponent {
   onClose() {
     this.close.emit();
   }
+
+  onSubmit() {
+  }
 }
