@@ -19,36 +19,12 @@ export class TasksComponent {
   isNewTask = false;
 
 
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: '.NET 8 Migration',
-      summary: 'Update FMIS app with appropriate package builds',
-      dueDate: '2025-12-31'
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'MAP 2027 updates',
-      summary: 'Implement new requirements for next FY',
-      dueDate: '2025-09-30'
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'UAP Buildout',
-      summary: 'UAP mvp for Energy Project',
-      dueDate: '2025-11-18'
-    }
-  ];
 
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return
   }
 
   onCompletedTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
   onNewTask() {
@@ -60,13 +36,7 @@ export class TasksComponent {
   }
 
   onCreateTask(taskData: NewTaskData) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date,
-    });
+
     this.isNewTask = false;
   }
 }
