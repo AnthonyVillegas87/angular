@@ -40,8 +40,4 @@ export class TasksComponent {
     this.isNewTask = false;
   }
 
-  onCreateTask(taskData: NewTaskData) {
-
-    this.isNewTask = false;
-  }
 }
