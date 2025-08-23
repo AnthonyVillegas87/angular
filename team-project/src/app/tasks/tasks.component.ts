@@ -14,6 +14,7 @@ import {TasksService} from "./tasks.service";
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
+
 export class TasksComponent {
   @Input({ required:true }) userId!: string;
   @Input({ required:true }) name?: string;
@@ -27,9 +28,6 @@ export class TasksComponent {
 
   get selectedUserTasks() {
     return this.tasksService.getUsersTasks(this.userId);
-  }
-
-  onCompletedTask(id: string) {
   }
 
   onNewTask() {
