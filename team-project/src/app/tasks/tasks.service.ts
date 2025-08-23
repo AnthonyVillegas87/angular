@@ -26,6 +26,12 @@ private tasks = [
       dueDate: '2025-11-18'
     }
   ];
+
+constructor() {
+  this.tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')!) : [];
+}
+
+
   getUsersTasks(userId: string) {
     return this.tasks.filter((task) => task.userId === userId);
   }
@@ -38,10 +44,16 @@ private tasks = [
       summary: taskData.summary,
       dueDate: taskData.date,
     });
+    this.saveTasks();
   }
 
   removeTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.saveTasks();
+  }
+
+  private saveTasks() {
+   localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
 }
